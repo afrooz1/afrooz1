@@ -1,145 +1,804 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AfroozHabib — Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{
-      --steel:#2b3940; /* Steel */
-      --sunset:#ff7a59; /* Sunset */
-      --sunset-2:#ffb199;
-    }
-    .accent-gradient{background: linear-gradient(90deg,var(--sunset),var(--sunset-2));}
-    .glass{background: rgba(255,255,255,0.04); backdrop-filter: blur(6px);}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Afrooz Habib — Software Engineer & DevSecOps</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181b22;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8eaf0;
+    --muted: #7a7f8e;
+    --accent: #4af0b0;
+    --accent2: #3b82f6;
+    --accent3: #f472b6;
+    --warn: #f59e0b;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,240,176,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,240,176,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 9vw, 96px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+
+  .hero-name .accent { color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.3s forwards;
+  }
+
+  .hero-title span { color: var(--text); }
+
+  .hero-desc {
+    max-width: 520px;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s forwards;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.5s forwards;
+  }
+
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0c10;
+  }
+  .btn-primary:hover { background: #6affc4; transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1px solid var(--border2);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.15s forwards;
+  }
+
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  /* ── SECTION ── */
+  section { padding: 80px 0; border-top: 1px solid var(--border); }
+
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-tag::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+    line-height: 1.1;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .skill-group:hover { border-color: var(--border2); }
+
+  .skill-group-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-group-label.frontend { color: var(--accent2); }
+  .skill-group-label.devops { color: var(--accent); }
+  .skill-group-label.security { color: var(--accent3); }
+  .skill-group-label.cloud { color: var(--warn); }
+  .skill-group-label.data { color: #a78bfa; }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .skill-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: var(--surface2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { color: var(--text); border-color: var(--border2); }
+
+  /* ── PROJECTS ── */
+  .projects-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform 0.2s;
+    transform-origin: bottom;
+  }
+
+  .project-card:hover { border-color: var(--border2); transform: translateX(4px); }
+  .project-card:hover::before { transform: scaleY(1); }
+
+  .project-card.featured::before { transform: scaleY(1); background: var(--accent3); }
+  .project-card.featured { border-color: rgba(244,114,182,0.2); }
+
+  .project-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .badge-fyp { background: rgba(244,114,182,0.1); color: var(--accent3); border: 1px solid rgba(244,114,182,0.2); }
+  .badge-devops { background: rgba(74,240,176,0.08); color: var(--accent); border: 1px solid rgba(74,240,176,0.15); }
+  .badge-web { background: rgba(59,130,246,0.08); color: var(--accent2); border: 1px solid rgba(59,130,246,0.15); }
+  .badge-sec { background: rgba(245,158,11,0.08); color: var(--warn); border: 1px solid rgba(245,158,11,0.15); }
+  .badge-cloud { background: rgba(167,139,250,0.08); color: #a78bfa; border: 1px solid rgba(167,139,250,0.15); }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .stack-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 36px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+  }
+
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .exp-role {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .exp-company { color: var(--accent); }
+
+  .exp-period {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .exp-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .exp-points li {
+    font-size: 13px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .exp-points li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 11px;
+  }
+
+  /* ── CERTS ── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    transition: all 0.2s;
+  }
+  .cert-card:hover { border-color: var(--warn); }
+
+  .cert-issuer {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--warn);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .cert-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  /* ── FOOTER / CONTACT ── */
+  .contact {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .contact-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .footer-note {
+    margin-top: 60px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--border2);
+    text-align: center;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .project-card { grid-template-columns: 1fr; }
+    .exp-meta { flex-direction: column; }
+  }
+</style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-slate-900 to-[color:var(--steel)] text-slate-100 font-sans">
-  <header class="max-w-4xl mx-auto p-6 flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <div class="w-12 h-12 rounded-full accent-gradient shadow-lg flex items-center justify-center text-slate-900 font-bold">AH</div>
-      <div>
-        <h1 class="text-xl font-semibold">AfroozHabib</h1>
-        <p class="text-sm text-slate-300">DevSecOps • Cloud & Automation • Portfolio</p>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-status">
+      <span class="status-dot"></span>
+      Open to Junior Software Engineer &amp; DevOps roles
+    </div>
+    <div class="hero-eyebrow">afrooz1 · Lahore, Pakistan</div>
+    <h1 class="hero-name">Afrooz<br/><span class="accent">Habib</span></h1>
+    <p class="hero-title">
+      <span>Full-Stack Developer</span> &amp; <span>DevSecOps Engineer</span>
+    </p>
+    <p class="hero-desc">
+      BSCS graduate building production-grade web apps with MERN and deploying them
+      securely using Docker, GitHub Actions, and Azure/AWS. Two internships.
+      Three Microsoft cloud certifications.
+    </p>
+    <div class="hero-ctas">
+      <a href="mailto:cyberafrooz@gmail.com" class="btn btn-primary">Get in touch →</a>
+      <a href="https://www.linkedin.com/in/afrooz-habib" class="btn btn-ghost" target="_blank">LinkedIn</a>
+      <a href="https://github.com/afrooz1" class="btn btn-ghost" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── SKILLS ── -->
+<section>
+  <div class="container">
+    <div class="section-tag reveal">Skills</div>
+    <h2 class="section-title reveal">What I work with</h2>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <div class="skill-group-label frontend">Frontend &amp; Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Vite</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label devops">DevOps &amp; CI/CD</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">CI/CD Pipelines</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Maven</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label cloud">Cloud</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Azure</span>
+          <span class="skill-tag">AWS S3</span>
+          <span class="skill-tag">Azure IAM</span>
+          <span class="skill-tag">Entra ID</span>
+          <span class="skill-tag">Conditional Access</span>
+          <span class="skill-tag">IaC</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label security">Security</div>
+        <div class="skill-tags">
+          <span class="skill-tag">DevSecOps</span>
+          <span class="skill-tag">Secure CI</span>
+          <span class="skill-tag">SAST</span>
+          <span class="skill-tag">SQA Testing</span>
+          <span class="skill-tag">SC-300</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label data">Data &amp; AI</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">AI integration</span>
+        </div>
       </div>
     </div>
-    <nav class="hidden md:flex gap-4 text-sm">
-      <a href="#about" class="px-3 py-2 hover:underline">About</a>
-      <a href="#skills" class="px-3 py-2 hover:underline">Skills</a>
-      <a href="#projects" class="px-3 py-2 hover:underline">Projects</a>
-      <a href="#contact" class="px-3 py-2 bg-[color:var(--sunset)] text-slate-900 rounded-md shadow-sm">Contact</a>
-    </nav>
-  </header>
+  </div>
+</section>
 
-  <main class="max-w-4xl mx-auto p-6 space-y-12">
-    <section class="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 class="text-4xl font-extrabold leading-tight">Hi, I'm <span class="accent-gradient bg-clip-text text-transparent">Afrooz</span> — DevSecOps engineer</h2>
-        <p class="mt-4 text-slate-300">I build secure, automated infrastructure and CI/CD pipelines using AWS, Docker, Terraform, Ansible, Kubernetes, and open-source monitoring tools. I turn manual ops into reliable pipelines and help teams ship faster with confidence.</p>
+<!-- ── PROJECTS ── -->
+<section>
+  <div class="container">
+    <div class="section-tag reveal">Projects</div>
+    <h2 class="section-title reveal">Things I've built</h2>
+    <div class="projects-list reveal">
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#projects" class="px-4 py-2 glass rounded-md text-sm">View projects</a>
-          <a href="#contact" class="px-4 py-2 rounded-md text-sm bg-[color:var(--sunset)] text-slate-900">Say hello</a>
+      <a href="https://github.com/afrooz1/voting-app-devops" target="_blank" class="project-card">
+        <div>
+          <div class="project-name">voting-app-devops <span class="project-badge badge-devops">DevOps</span></div>
+          <p class="project-desc">Full-stack voting application with a complete DevOps pipeline — Docker containerisation, GitHub Actions CI/CD, and automated deployment workflow.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Docker</span>
+            <span class="stack-tag">GitHub Actions</span>
+            <span class="stack-tag">CI/CD</span>
+          </div>
         </div>
+        <span class="project-badge badge-devops">↗</span>
+      </a>
 
-        <ul class="mt-6 grid grid-cols-2 gap-2 text-sm text-slate-300">
-          <li><strong class="text-slate-100">Location:</strong> Pakistan</li>
-          <li><strong class="text-slate-100">Focus:</strong> DevSecOps & Cloud</li>
-          <li><strong class="text-slate-100">Stack:</strong> React, Node.js, Tailwind, MongoDB</li>
-          <li><strong class="text-slate-100">Tools:</strong> Docker, Terraform, Ansible, Jenkins</li>
+      <a href="https://github.com/afrooz1/secure-webapp-devsecops" target="_blank" class="project-card">
+        <div>
+          <div class="project-name">secure-webapp-devsecops <span class="project-badge badge-sec">DevSecOps</span></div>
+          <p class="project-desc">Web application built with DevSecOps principles — SAST scanning, dependency auditing, and a secure CI pipeline integrated from the ground up.</p>
+          <div class="project-stack">
+            <span class="stack-tag">DevSecOps</span>
+            <span class="stack-tag">GitHub Actions</span>
+            <span class="stack-tag">Azure</span>
+            <span class="stack-tag">Security scanning</span>
+          </div>
+        </div>
+        <span class="project-badge badge-sec">↗</span>
+      </a>
+
+      <a href="https://github.com/afrooz1/aws-static-website-s3" target="_blank" class="project-card">
+        <div>
+          <div class="project-name">aws-static-website-s3 <span class="project-badge badge-cloud">Cloud</span></div>
+          <p class="project-desc">Static website hosted on AWS S3 with automated deployment via GitHub Actions — demonstrates cloud infrastructure provisioning and CI/CD.</p>
+          <div class="project-stack">
+            <span class="stack-tag">AWS S3</span>
+            <span class="stack-tag">GitHub Actions</span>
+            <span class="stack-tag">CI/CD</span>
+          </div>
+        </div>
+        <span class="project-badge badge-cloud">↗</span>
+      </a>
+
+      <a href="https://github.com/afrooz1/Mern-Estate" target="_blank" class="project-card">
+        <div>
+          <div class="project-name">Mern-Estate <span class="project-badge badge-web">Full-Stack</span></div>
+          <p class="project-desc">Full-stack real estate listing platform with user authentication, property search, and responsive UI built on the MERN stack.</p>
+          <div class="project-stack">
+            <span class="stack-tag">MongoDB</span>
+            <span class="stack-tag">Express</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+          </div>
+        </div>
+        <span class="project-badge badge-web">↗</span>
+      </a>
+
+      <a href="https://github.com/afrooz1/docker-github-actions-demo" target="_blank" class="project-card">
+        <div>
+          <div class="project-name">docker-github-actions-demo <span class="project-badge badge-devops">DevOps</span></div>
+          <p class="project-desc">Demo showing Docker containerisation integrated with GitHub Actions for automated build and push to a container registry.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Docker</span>
+            <span class="stack-tag">GitHub Actions</span>
+            <span class="stack-tag">Container registry</span>
+          </div>
+        </div>
+        <span class="project-badge badge-devops">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section>
+  <div class="container">
+    <div class="section-tag reveal">Experience</div>
+    <h2 class="section-title reveal">Where I've worked</h2>
+    <div class="exp-list reveal">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">DevSecOps Intern · <span class="exp-company">Microtechx</span></div>
+          </div>
+          <span class="exp-period">Jun 2024 – Sep 2024</span>
+        </div>
+        <ul class="exp-points">
+          <li>Worked with Microsoft Entra ID, Azure IAM, and Conditional Access policies in a real enterprise environment.</li>
+          <li>Completed SC-300, AZ-204, and AZ-700 training delivered by Microtechx.</li>
+          <li>Integrated security practices into cloud DevOps pipelines following DevSecOps principles.</li>
         </ul>
       </div>
 
-      <div class="p-6 rounded-2xl glass border border-slate-700">
-        <h3 class="text-lg font-semibold">Quick summary</h3>
-        <p class="mt-3 text-slate-300 text-sm">I design and implement infrastructure-as-code, CI/CD, and monitoring. I pay close attention to security hardening, cost-efficient cloud setups (including student/free tiers), and clear documentation so projects are reproducible and interview-ready.</p>
-
-        <div class="mt-4">
-          <h4 class="text-sm text-slate-200 font-medium">Current project</h4>
-          <p class="text-sm text-slate-300">Self-guided DevOps internship — building portfolio projects using AWS, Terraform, Kubernetes, Prometheus, Grafana, and Jenkins.</p>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">Web Development Intern · <span class="exp-company">Rhombix Technologies</span></div>
+          </div>
+          <span class="exp-period">Oct 2024 – Dec 2024 · Remote</span>
         </div>
+        <ul class="exp-points">
+          <li>Built and enhanced responsive web applications using React.js, HTML5, CSS3, and JavaScript.</li>
+          <li>Worked within a professional team, delivering tasks independently under real-world deadlines.</li>
+          <li>Applied component-based frontend architecture in production codebase.</li>
+        </ul>
       </div>
-    </section>
 
-    <section id="skills" class="p-6 rounded-2xl glass border border-slate-700">
-      <h3 class="text-2xl font-semibold">Skills</h3>
-      <div class="mt-4 grid md:grid-cols-3 gap-4">
-        <div>
-          <h5 class="font-medium">Cloud & Infra</h5>
-          <p class="text-sm text-slate-300">AWS (EC2, VPC, IAM), Azure basics, Load Balancers, Networking</p>
-        </div>
-        <div>
-          <h5 class="font-medium">Automation</h5>
-          <p class="text-sm text-slate-300">Terraform, Ansible, ARM templates, scripting (Bash/PowerShell)</p>
-        </div>
-        <div>
-          <h5 class="font-medium">CI/CD & Containers</h5>
-          <p class="text-sm text-slate-300">Jenkins, GitHub Actions, Docker, Kubernetes</p>
-        </div>
-        <div>
-          <h5 class="font-medium">Security & Monitoring</h5>
-          <p class="text-sm text-slate-300">DevSecOps practices, Prometheus, Grafana, logging</p>
-        </div>
-        <div>
-          <h5 class="font-medium">Web & Backend</h5>
-          <p class="text-sm text-slate-300">React, Node.js, Express, MongoDB</p>
-        </div>
-        <div>
-          <h5 class="font-medium">Soft skills</h5>
-          <p class="text-sm text-slate-300">Documentation, mentorship, project planning</p>
-        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section>
+  <div class="container">
+    <div class="section-tag reveal">Certifications</div>
+    <h2 class="section-title reveal">Credentials</h2>
+    <div class="certs-grid reveal">
+      <div class="cert-card">
+        <div class="cert-issuer">Microsoft</div>
+        <div class="cert-name">SC-300: Identity &amp; Access Administrator</div>
       </div>
-    </section>
-
-    <section id="projects" class="p-6 rounded-2xl glass border border-slate-700">
-      <h3 class="text-2xl font-semibold">Selected projects</h3>
-      <div class="mt-4 space-y-4">
-        <article class="p-4 rounded-lg bg-slate-800/40">
-          <h4 class="font-medium">1. CI/CD for a web app</h4>
-          <p class="text-sm text-slate-300 mt-1">Complete Jenkins pipeline that builds Docker images, pushes to a registry, and deploys to Kubernetes with rollout strategies and health checks.</p>
-        </article>
-        <article class="p-4 rounded-lg bg-slate-800/40">
-          <h4 class="font-medium">2. Infrastructure as Code</h4>
-          <p class="text-sm text-slate-300 mt-1">Terraform and ARM templates to deploy reproducible environments on AWS and Azure (student/free tier friendly).</p>
-        </article>
-        <article class="p-4 rounded-lg bg-slate-800/40">
-          <h4 class="font-medium">3. Monitoring & Alerts</h4>
-          <p class="text-sm text-slate-300 mt-1">Prometheus + Grafana setup for app metrics, alerting rules, and dashboards to monitor cluster health and performance.</p>
-        </article>
+      <div class="cert-card">
+        <div class="cert-issuer">Microsoft</div>
+        <div class="cert-name">AZ-204: Developing Solutions for Azure</div>
       </div>
-    </section>
+      <div class="cert-card">
+        <div class="cert-issuer">Microsoft</div>
+        <div class="cert-name">AZ-700: Azure Network Engineer</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">AWS</div>
+        <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">NEXSKILL</div>
+        <div class="cert-name">Full Stack Web Development</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="p-6 rounded-2xl glass border border-slate-700">
-      <h3 class="text-2xl font-semibold">Contact</h3>
-      <p class="mt-2 text-slate-300">Interested in working together? Want feedback on your DevOps project? Reach out:</p>
-
-      <div class="mt-4 grid md:grid-cols-2 gap-4">
-        <div>
-          <p class="text-sm"><strong>Email:</strong> <a href="mailto:afrooz@example.com" class="underline">afrooz@example.com</a></p>
-          <p class="text-sm mt-2"><strong>GitHub:</strong> <a href="https://github.com/afrooz1" target="_blank" class="underline">github.com/afrooz1</a></p>
+<!-- ── EDUCATION ── -->
+<section>
+  <div class="container">
+    <div class="section-tag reveal">Education</div>
+    <div class="exp-list reveal">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">BSCS · <span class="exp-company">University of Education, Lahore</span></div>
+            <p style="font-size:13px;color:var(--muted);margin-top:6px;">Data Structures · Operating Systems · Networking · Databases · Software Engineering</p>
+          </div>
+          <span class="exp-period">2022 – 2026</span>
         </div>
-        <form class="space-y-3" onsubmit="event.preventDefault(); alert('Thanks — message sent (demo)')">
-          <input class="w-full p-2 rounded bg-slate-800/30 text-sm" placeholder="Your name" required />
-          <input class="w-full p-2 rounded bg-slate-800/30 text-sm" placeholder="Your email" required />
-          <textarea class="w-full p-2 rounded bg-slate-800/30 text-sm" rows="3" placeholder="Message"></textarea>
-          <button class="px-4 py-2 rounded bg-[color:var(--sunset)] text-slate-900">Send</button>
-        </form>
+        <ul class="exp-points">
+          <li>Final Year Project: SmartBI — AI-powered Business Intelligence web application.</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <footer class="text-center text-xs text-slate-500 py-6">Made with ♥ by AfroozHabib — built for learning and interviews.</footer>
-  </main>
+<!-- ── CONTACT ── -->
+<div class="contact">
+  <div class="container">
+    <h2 class="contact-title reveal">Let's work<br/><span style="color:var(--accent)">together.</span></h2>
+    <p class="contact-sub reveal">Open to Junior Software Engineer and DevOps/DevSecOps roles. Based in Lahore, open to remote.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:cyberafrooz@gmail.com" class="contact-link">✉ cyberafrooz@gmail.com</a>
+      <a href="https://www.linkedin.com/in/afrooz-habib" target="_blank" class="contact-link">in LinkedIn</a>
+      <a href="https://github.com/afrooz1" target="_blank" class="contact-link">⌥ GitHub</a>
+    </div>
+    <p class="footer-note">afrooz1 · Lahore, Pakistan · BSCS 2026</p>
+  </div>
+</div>
 
-  <script>
-    // small enhancement: smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        const t=document.querySelector(a.getAttribute('href'));
-        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-      })
-    })
-  </script>
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
