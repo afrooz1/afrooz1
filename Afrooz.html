@@ -4,7 +4,6 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Afrooz Habib — Software Engineer & DevSecOps</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
     --bg: #0a0c10;
@@ -18,13 +17,12 @@
     --accent2: #3b82f6;
     --accent3: #f472b6;
     --warn: #f59e0b;
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-    --font-mono: 'DM Mono', monospace;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -36,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* Grid background */
   body::before {
     content: '';
     position: fixed;
@@ -51,14 +48,31 @@
 
   .container { max-width: 860px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 80px 0 60px;
-    position: relative;
+  }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
   }
 
   .hero-eyebrow {
@@ -67,53 +81,47 @@
     color: var(--accent);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     opacity: 0;
-    animation: fadeUp 0.6s 0.1s forwards;
+    animation: fadeUp 0.6s 0.15s forwards;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-
   .hero-eyebrow::before {
     content: '';
     display: inline-block;
-    width: 32px;
-    height: 1px;
+    width: 32px; height: 1px;
     background: var(--accent);
   }
 
   .hero-name {
     font-family: var(--font-display);
     font-size: clamp(52px, 9vw, 96px);
-    font-weight: 800;
+    font-weight: 900;
     line-height: 0.95;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeUp 0.6s 0.2s forwards;
   }
-
-  .hero-name .accent { color: var(--accent); }
+  .hero-name .acc { color: var(--accent); }
 
   .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(16px, 2.5vw, 22px);
-    font-weight: 500;
+    font-size: clamp(15px, 2.2vw, 20px);
     color: var(--muted);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     opacity: 0;
     animation: fadeUp 0.6s 0.3s forwards;
   }
-
-  .hero-title span { color: var(--text); }
+  .hero-title span { color: var(--text); font-weight: 500; }
 
   .hero-desc {
     max-width: 520px;
     font-size: 15px;
     color: var(--muted);
     line-height: 1.8;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
     opacity: 0;
     animation: fadeUp 0.6s 0.4s forwards;
   }
@@ -130,7 +138,7 @@
     font-family: var(--font-mono);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     padding: 12px 24px;
     border-radius: 4px;
     text-decoration: none;
@@ -139,39 +147,12 @@
     align-items: center;
     gap: 8px;
   }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0c10;
-  }
+  .btn-primary { background: var(--accent); color: #0a0c10; border: none; }
   .btn-primary:hover { background: #6affc4; transform: translateY(-1px); }
-
-  .btn-ghost {
-    border: 1px solid var(--border2);
-    color: var(--text);
-  }
+  .btn-ghost { border: 1px solid var(--border2); color: var(--text); background: transparent; }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  .hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--accent);
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.15s forwards;
-  }
-
-  .status-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-
-  /* ── SECTION ── */
+  /* SECTIONS */
   section { padding: 80px 0; border-top: 1px solid var(--border); }
 
   .section-tag {
@@ -180,7 +161,7 @@
     color: var(--accent);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -189,47 +170,42 @@
 
   .section-title {
     font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(26px, 4vw, 40px);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 48px;
+    margin-bottom: 44px;
     line-height: 1.1;
   }
 
-  /* ── SKILLS ── */
+  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
-
   .skill-group {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 20px;
+    padding: 18px 20px;
     transition: border-color 0.2s;
   }
   .skill-group:hover { border-color: var(--border2); }
-
   .skill-group-label {
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
   }
-
-  .skill-group-label.frontend { color: var(--accent2); }
-  .skill-group-label.devops { color: var(--accent); }
-  .skill-group-label.security { color: var(--accent3); }
-  .skill-group-label.cloud { color: var(--warn); }
-  .skill-group-label.data { color: #a78bfa; }
-
+  .lbl-front { color: var(--accent2); }
+  .lbl-devops { color: var(--accent); }
+  .lbl-cloud { color: var(--warn); }
+  .lbl-sec { color: var(--accent3); }
+  .lbl-data { color: #a78bfa; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
   .skill-tag {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -242,14 +218,13 @@
   }
   .skill-tag:hover { color: var(--text); border-color: var(--border2); }
 
-  /* ── PROJECTS ── */
-  .projects-list { display: flex; flex-direction: column; gap: 16px; }
-
+  /* PROJECTS */
+  .projects-list { display: flex; flex-direction: column; gap: 14px; }
   .project-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 24px 28px;
+    padding: 22px 26px;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 16px;
@@ -260,7 +235,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .project-card::before {
     content: '';
     position: absolute;
@@ -268,13 +242,11 @@
     width: 3px;
     background: var(--accent);
     transform: scaleY(0);
-    transition: transform 0.2s;
+    transition: transform 0.25s;
     transform-origin: bottom;
   }
-
   .project-card:hover { border-color: var(--border2); transform: translateX(4px); }
   .project-card:hover::before { transform: scaleY(1); }
-
   .project-card.featured::before { transform: scaleY(1); background: var(--accent3); }
   .project-card.featured { border-color: rgba(244,114,182,0.2); }
 
@@ -286,32 +258,23 @@
     font-weight: 500;
     white-space: nowrap;
   }
-
-  .badge-fyp { background: rgba(244,114,182,0.1); color: var(--accent3); border: 1px solid rgba(244,114,182,0.2); }
-  .badge-devops { background: rgba(74,240,176,0.08); color: var(--accent); border: 1px solid rgba(74,240,176,0.15); }
-  .badge-web { background: rgba(59,130,246,0.08); color: var(--accent2); border: 1px solid rgba(59,130,246,0.15); }
-  .badge-sec { background: rgba(245,158,11,0.08); color: var(--warn); border: 1px solid rgba(245,158,11,0.15); }
-  .badge-cloud { background: rgba(167,139,250,0.08); color: #a78bfa; border: 1px solid rgba(167,139,250,0.15); }
+  .pb-fyp { background: rgba(244,114,182,0.1); color: var(--accent3); border: 1px solid rgba(244,114,182,0.2); }
+  .pb-do  { background: rgba(74,240,176,0.08);  color: var(--accent);  border: 1px solid rgba(74,240,176,0.15); }
+  .pb-web { background: rgba(59,130,246,0.08);  color: var(--accent2); border: 1px solid rgba(59,130,246,0.15); }
+  .pb-sec { background: rgba(245,158,11,0.08);  color: var(--warn);    border: 1px solid rgba(245,158,11,0.15); }
+  .pb-cld { background: rgba(167,139,250,0.08); color: #a78bfa;        border: 1px solid rgba(167,139,250,0.15); }
 
   .project-name {
-    font-family: var(--font-display);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 6px;
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
-
-  .project-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-
+  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
   .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-
   .stack-tag {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -322,45 +285,32 @@
     border-radius: 2px;
   }
 
-  /* ── EXPERIENCE ── */
-  .exp-list { display: flex; flex-direction: column; gap: 0; }
-
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; }
   .exp-item {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 28px 0;
+    padding: 28px 0 28px 24px;
     border-bottom: 1px solid var(--border);
     position: relative;
-    padding-left: 24px;
   }
-
   .exp-item::before {
     content: '';
     position: absolute;
-    left: 0; top: 36px;
+    left: 0; top: 38px;
     width: 8px; height: 8px;
     border-radius: 50%;
     border: 2px solid var(--accent);
     background: var(--bg);
   }
-
   .exp-meta {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
-
-  .exp-role {
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 600;
-  }
-
+  .exp-role { font-size: 16px; font-weight: 600; }
   .exp-company { color: var(--accent); }
-
   .exp-period {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -370,47 +320,30 @@
     border-radius: 3px;
     white-space: nowrap;
   }
-
-  .exp-points {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 10px;
-  }
-
+  .exp-points { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
   .exp-points li {
     font-size: 13px;
     color: var(--muted);
-    padding-left: 16px;
+    padding-left: 18px;
     position: relative;
     line-height: 1.6;
   }
+  .exp-points li::before { content: '\2192'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 2px; }
 
-  .exp-points li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 11px;
-  }
-
-  /* ── CERTS ── */
+  /* CERTS */
   .certs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 12px;
   }
-
   .cert-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 16px 18px;
-    transition: all 0.2s;
+    transition: border-color 0.2s;
   }
   .cert-card:hover { border-color: var(--warn); }
-
   .cert-issuer {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -419,52 +352,30 @@
     text-transform: uppercase;
     margin-bottom: 6px;
   }
+  .cert-name { font-size: 13px; font-weight: 600; line-height: 1.4; }
 
-  .cert-name {
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--text);
-  }
-
-  /* ── FOOTER / CONTACT ── */
-  .contact {
-    padding: 80px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-  }
-
+  /* CONTACT */
+  .contact { padding: 80px 0; border-top: 1px solid var(--border); text-align: center; }
   .contact-title {
     font-family: var(--font-display);
     font-size: clamp(32px, 5vw, 56px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 16px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
   }
-
   .contact-sub {
     font-size: 14px;
     color: var(--muted);
-    margin-bottom: 36px;
+    margin: 0 auto 32px;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
   }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
+  .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
   .contact-link {
     font-family: var(--font-mono);
     font-size: 12px;
     color: var(--muted);
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 10px 18px;
@@ -473,133 +384,108 @@
     transition: all 0.2s;
   }
   .contact-link:hover { color: var(--accent); border-color: var(--accent); }
-
   .footer-note {
-    margin-top: 60px;
+    margin-top: 56px;
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--border2);
-    text-align: center;
+    color: rgba(255,255,255,0.12);
   }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s, transform 0.6s;
-  }
+  /* REVEAL ON SCROLL */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s, transform 0.55s; }
   .reveal.visible { opacity: 1; transform: none; }
 
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 6px; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:.4; transform:scale(0.75); }
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .project-card { grid-template-columns: 1fr; }
     .exp-meta { flex-direction: column; }
+    .hero-name { font-size: 48px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <div class="hero">
   <div class="container">
     <div class="hero-status">
       <span class="status-dot"></span>
       Open to Junior Software Engineer &amp; DevOps roles
     </div>
-    <div class="hero-eyebrow">afrooz1 · Lahore, Pakistan</div>
-    <h1 class="hero-name">Afrooz<br/><span class="accent">Habib</span></h1>
+    <div class="hero-eyebrow">afrooz1 &nbsp;&middot;&nbsp; Lahore, Pakistan</div>
+    <h1 class="hero-name">Afrooz<br/><span class="acc">Habib.</span></h1>
     <p class="hero-title">
       <span>Full-Stack Developer</span> &amp; <span>DevSecOps Engineer</span>
     </p>
     <p class="hero-desc">
       BSCS graduate building production-grade web apps with MERN and deploying them
-      securely using Docker, GitHub Actions, and Azure/AWS. Two internships.
-      Three Microsoft cloud certifications.
+      securely using Docker, GitHub Actions, and Azure/AWS. Two internships. Three
+      Microsoft cloud certifications.
     </p>
     <div class="hero-ctas">
-      <a href="mailto:cyberafrooz@gmail.com" class="btn btn-primary">Get in touch →</a>
-      <a href="https://www.linkedin.com/in/afrooz-habib" class="btn btn-ghost" target="_blank">LinkedIn</a>
-      <a href="https://github.com/afrooz1" class="btn btn-ghost" target="_blank">GitHub</a>
+      <a href="mailto:cyberafrooz@gmail.com" class="btn btn-primary">Get in touch &rarr;</a>
+      <a href="https://www.linkedin.com/in/afrooz-habib" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/afrooz1" target="_blank" class="btn btn-ghost">GitHub</a>
     </div>
   </div>
 </div>
 
-<!-- ── SKILLS ── -->
+<!-- SKILLS -->
 <section>
   <div class="container">
     <div class="section-tag reveal">Skills</div>
     <h2 class="section-title reveal">What I work with</h2>
     <div class="skills-grid reveal">
       <div class="skill-group">
-        <div class="skill-group-label frontend">Frontend &amp; Backend</div>
+        <div class="skill-group-label lbl-front">Frontend &amp; Backend</div>
         <div class="skill-tags">
-          <span class="skill-tag">React.js</span>
-          <span class="skill-tag">Vite</span>
-          <span class="skill-tag">Tailwind CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Express.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Django</span>
-          <span class="skill-tag">REST APIs</span>
-          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">React.js</span><span class="skill-tag">Vite</span>
+          <span class="skill-tag">Tailwind CSS</span><span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Node.js</span><span class="skill-tag">Express.js</span>
+          <span class="skill-tag">Python</span><span class="skill-tag">Django</span>
+          <span class="skill-tag">REST APIs</span><span class="skill-tag">MongoDB</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label devops">DevOps &amp; CI/CD</div>
+        <div class="skill-group-label lbl-devops">DevOps &amp; CI/CD</div>
         <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">GitHub Actions</span>
-          <span class="skill-tag">CI/CD Pipelines</span>
-          <span class="skill-tag">Terraform</span>
-          <span class="skill-tag">Maven</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">CI/CD Pipelines</span><span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Maven</span><span class="skill-tag">Linux</span><span class="skill-tag">Git</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label cloud">Cloud</div>
+        <div class="skill-group-label lbl-cloud">Cloud</div>
         <div class="skill-tags">
-          <span class="skill-tag">Microsoft Azure</span>
-          <span class="skill-tag">AWS S3</span>
-          <span class="skill-tag">Azure IAM</span>
-          <span class="skill-tag">Entra ID</span>
-          <span class="skill-tag">Conditional Access</span>
-          <span class="skill-tag">IaC</span>
+          <span class="skill-tag">Microsoft Azure</span><span class="skill-tag">AWS S3</span>
+          <span class="skill-tag">Azure IAM</span><span class="skill-tag">Entra ID</span>
+          <span class="skill-tag">Conditional Access</span><span class="skill-tag">Terraform IaC</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label security">Security</div>
+        <div class="skill-group-label lbl-sec">Security</div>
         <div class="skill-tags">
-          <span class="skill-tag">DevSecOps</span>
-          <span class="skill-tag">Secure CI</span>
-          <span class="skill-tag">SAST</span>
-          <span class="skill-tag">SQA Testing</span>
-          <span class="skill-tag">SC-300</span>
+          <span class="skill-tag">DevSecOps</span><span class="skill-tag">Secure CI</span>
+          <span class="skill-tag">SAST</span><span class="skill-tag">SQA Testing</span><span class="skill-tag">SC-300</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label data">Data &amp; AI</div>
+        <div class="skill-group-label lbl-data">Data &amp; AI</div>
         <div class="skill-tags">
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Matplotlib</span>
-          <span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span>
           <span class="skill-tag">AI integration</span>
         </div>
       </div>
@@ -607,7 +493,7 @@
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- PROJECTS -->
 <section>
   <div class="container">
     <div class="section-tag reveal">Projects</div>
@@ -616,88 +502,74 @@
 
       <a href="https://github.com/afrooz1/voting-app-devops" target="_blank" class="project-card">
         <div>
-          <div class="project-name">voting-app-devops <span class="project-badge badge-devops">DevOps</span></div>
-          <p class="project-desc">Full-stack voting application with a complete DevOps pipeline — Docker containerisation, GitHub Actions CI/CD, and automated deployment workflow.</p>
+          <div class="project-name">voting-app-devops <span class="project-badge pb-do">DevOps</span></div>
+          <p class="project-desc">Full-stack voting app with a complete DevOps pipeline &mdash; Docker containerisation, GitHub Actions CI/CD, and automated deployment.</p>
           <div class="project-stack">
-            <span class="stack-tag">Docker</span>
-            <span class="stack-tag">GitHub Actions</span>
-            <span class="stack-tag">CI/CD</span>
+            <span class="stack-tag">Docker</span><span class="stack-tag">GitHub Actions</span><span class="stack-tag">CI/CD</span>
           </div>
         </div>
-        <span class="project-badge badge-devops">↗</span>
+        <span class="project-badge pb-do">&#8599;</span>
       </a>
 
       <a href="https://github.com/afrooz1/secure-webapp-devsecops" target="_blank" class="project-card">
         <div>
-          <div class="project-name">secure-webapp-devsecops <span class="project-badge badge-sec">DevSecOps</span></div>
-          <p class="project-desc">Web application built with DevSecOps principles — SAST scanning, dependency auditing, and a secure CI pipeline integrated from the ground up.</p>
+          <div class="project-name">secure-webapp-devsecops <span class="project-badge pb-sec">DevSecOps</span></div>
+          <p class="project-desc">Web app with integrated security pipeline &mdash; SAST scanning, dependency auditing, and secure CI built in from the start.</p>
           <div class="project-stack">
-            <span class="stack-tag">DevSecOps</span>
-            <span class="stack-tag">GitHub Actions</span>
-            <span class="stack-tag">Azure</span>
-            <span class="stack-tag">Security scanning</span>
+            <span class="stack-tag">DevSecOps</span><span class="stack-tag">GitHub Actions</span><span class="stack-tag">Azure</span>
           </div>
         </div>
-        <span class="project-badge badge-sec">↗</span>
+        <span class="project-badge pb-sec">&#8599;</span>
       </a>
 
       <a href="https://github.com/afrooz1/aws-static-website-s3" target="_blank" class="project-card">
         <div>
-          <div class="project-name">aws-static-website-s3 <span class="project-badge badge-cloud">Cloud</span></div>
-          <p class="project-desc">Static website hosted on AWS S3 with automated deployment via GitHub Actions — demonstrates cloud infrastructure provisioning and CI/CD.</p>
+          <div class="project-name">aws-static-website-s3 <span class="project-badge pb-cld">Cloud</span></div>
+          <p class="project-desc">Static site hosted on AWS S3 with automated deployment via GitHub Actions &mdash; cloud infrastructure and CI/CD in practice.</p>
           <div class="project-stack">
-            <span class="stack-tag">AWS S3</span>
-            <span class="stack-tag">GitHub Actions</span>
-            <span class="stack-tag">CI/CD</span>
+            <span class="stack-tag">AWS S3</span><span class="stack-tag">GitHub Actions</span><span class="stack-tag">CI/CD</span>
           </div>
         </div>
-        <span class="project-badge badge-cloud">↗</span>
+        <span class="project-badge pb-cld">&#8599;</span>
       </a>
 
       <a href="https://github.com/afrooz1/Mern-Estate" target="_blank" class="project-card">
         <div>
-          <div class="project-name">Mern-Estate <span class="project-badge badge-web">Full-Stack</span></div>
-          <p class="project-desc">Full-stack real estate listing platform with user authentication, property search, and responsive UI built on the MERN stack.</p>
+          <div class="project-name">Mern-Estate <span class="project-badge pb-web">Full-Stack</span></div>
+          <p class="project-desc">Full-stack real estate listing app with user authentication, property search, and responsive UI on the MERN stack.</p>
           <div class="project-stack">
-            <span class="stack-tag">MongoDB</span>
-            <span class="stack-tag">Express</span>
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">MongoDB</span><span class="stack-tag">Express</span>
+            <span class="stack-tag">React</span><span class="stack-tag">Node.js</span>
           </div>
         </div>
-        <span class="project-badge badge-web">↗</span>
+        <span class="project-badge pb-web">&#8599;</span>
       </a>
 
       <a href="https://github.com/afrooz1/docker-github-actions-demo" target="_blank" class="project-card">
         <div>
-          <div class="project-name">docker-github-actions-demo <span class="project-badge badge-devops">DevOps</span></div>
-          <p class="project-desc">Demo showing Docker containerisation integrated with GitHub Actions for automated build and push to a container registry.</p>
+          <div class="project-name">docker-github-actions-demo <span class="project-badge pb-do">DevOps</span></div>
+          <p class="project-desc">Docker containerisation integrated with GitHub Actions for automated build and push to a container registry.</p>
           <div class="project-stack">
-            <span class="stack-tag">Docker</span>
-            <span class="stack-tag">GitHub Actions</span>
-            <span class="stack-tag">Container registry</span>
+            <span class="stack-tag">Docker</span><span class="stack-tag">GitHub Actions</span><span class="stack-tag">Container registry</span>
           </div>
         </div>
-        <span class="project-badge badge-devops">↗</span>
+        <span class="project-badge pb-do">&#8599;</span>
       </a>
 
     </div>
   </div>
 </section>
 
-<!-- ── EXPERIENCE ── -->
+<!-- EXPERIENCE -->
 <section>
   <div class="container">
     <div class="section-tag reveal">Experience</div>
     <h2 class="section-title reveal">Where I've worked</h2>
     <div class="exp-list reveal">
-
       <div class="exp-item">
         <div class="exp-meta">
-          <div>
-            <div class="exp-role">DevSecOps Intern · <span class="exp-company">Microtechx</span></div>
-          </div>
-          <span class="exp-period">Jun 2024 – Sep 2024</span>
+          <div class="exp-role">DevSecOps Intern &nbsp;&middot;&nbsp; <span class="exp-company">Microtechx</span></div>
+          <span class="exp-period">Jun 2024 &ndash; Sep 2024</span>
         </div>
         <ul class="exp-points">
           <li>Worked with Microsoft Entra ID, Azure IAM, and Conditional Access policies in a real enterprise environment.</li>
@@ -705,100 +577,80 @@
           <li>Integrated security practices into cloud DevOps pipelines following DevSecOps principles.</li>
         </ul>
       </div>
-
       <div class="exp-item">
         <div class="exp-meta">
-          <div>
-            <div class="exp-role">Web Development Intern · <span class="exp-company">Rhombix Technologies</span></div>
-          </div>
-          <span class="exp-period">Oct 2024 – Dec 2024 · Remote</span>
+          <div class="exp-role">Web Development Intern &nbsp;&middot;&nbsp; <span class="exp-company">Rhombix Technologies</span></div>
+          <span class="exp-period">Oct 2024 &ndash; Dec 2024 &nbsp;&middot;&nbsp; Remote</span>
         </div>
         <ul class="exp-points">
           <li>Built and enhanced responsive web applications using React.js, HTML5, CSS3, and JavaScript.</li>
-          <li>Worked within a professional team, delivering tasks independently under real-world deadlines.</li>
-          <li>Applied component-based frontend architecture in production codebase.</li>
+          <li>Delivered tasks independently within a professional team under real-world deadlines.</li>
+          <li>Applied component-based frontend architecture in a production codebase.</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ── CERTIFICATIONS ── -->
+<!-- CERTIFICATIONS -->
 <section>
   <div class="container">
     <div class="section-tag reveal">Certifications</div>
     <h2 class="section-title reveal">Credentials</h2>
     <div class="certs-grid reveal">
-      <div class="cert-card">
-        <div class="cert-issuer">Microsoft</div>
-        <div class="cert-name">SC-300: Identity &amp; Access Administrator</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">Microsoft</div>
-        <div class="cert-name">AZ-204: Developing Solutions for Azure</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">Microsoft</div>
-        <div class="cert-name">AZ-700: Azure Network Engineer</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">AWS</div>
-        <div class="cert-name">AWS Cloud Practitioner Essentials</div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-issuer">NEXSKILL</div>
-        <div class="cert-name">Full Stack Web Development</div>
-      </div>
+      <div class="cert-card"><div class="cert-issuer">Microsoft</div><div class="cert-name">SC-300: Identity &amp; Access Administrator</div></div>
+      <div class="cert-card"><div class="cert-issuer">Microsoft</div><div class="cert-name">AZ-204: Developing Solutions for Azure</div></div>
+      <div class="cert-card"><div class="cert-issuer">Microsoft</div><div class="cert-name">AZ-700: Azure Network Engineer</div></div>
+      <div class="cert-card"><div class="cert-issuer">AWS</div><div class="cert-name">AWS Cloud Practitioner Essentials</div></div>
+      <div class="cert-card"><div class="cert-issuer">NEXSKILL</div><div class="cert-name">Full Stack Web Development</div></div>
     </div>
   </div>
 </section>
 
-<!-- ── EDUCATION ── -->
+<!-- EDUCATION -->
 <section>
   <div class="container">
     <div class="section-tag reveal">Education</div>
+    <h2 class="section-title reveal">Background</h2>
     <div class="exp-list reveal">
       <div class="exp-item">
         <div class="exp-meta">
-          <div>
-            <div class="exp-role">BSCS · <span class="exp-company">University of Education, Lahore</span></div>
-            <p style="font-size:13px;color:var(--muted);margin-top:6px;">Data Structures · Operating Systems · Networking · Databases · Software Engineering</p>
-          </div>
-          <span class="exp-period">2022 – 2026</span>
+          <div class="exp-role">BSCS &nbsp;&middot;&nbsp; <span class="exp-company">University of Education, Lahore</span></div>
+          <span class="exp-period">2022 &ndash; 2026</span>
         </div>
         <ul class="exp-points">
-          <li>Final Year Project: SmartBI — AI-powered Business Intelligence web application.</li>
+          <li>Relevant coursework: Data Structures, Operating Systems, Networking, Databases, Software Engineering.</li>
+          <li>Final Year Project: SmartBI &mdash; AI-powered Business Intelligence web application.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
+<!-- CONTACT -->
 <div class="contact">
   <div class="container">
     <h2 class="contact-title reveal">Let's work<br/><span style="color:var(--accent)">together.</span></h2>
-    <p class="contact-sub reveal">Open to Junior Software Engineer and DevOps/DevSecOps roles. Based in Lahore, open to remote.</p>
+    <p class="contact-sub reveal">Open to Junior Software Engineer and DevOps/DevSecOps roles. Based in Lahore &mdash; open to remote.</p>
     <div class="contact-links reveal">
-      <a href="mailto:cyberafrooz@gmail.com" class="contact-link">✉ cyberafrooz@gmail.com</a>
+      <a href="mailto:cyberafrooz@gmail.com" class="contact-link">&#9993; cyberafrooz@gmail.com</a>
       <a href="https://www.linkedin.com/in/afrooz-habib" target="_blank" class="contact-link">in LinkedIn</a>
-      <a href="https://github.com/afrooz1" target="_blank" class="contact-link">⌥ GitHub</a>
+      <a href="https://github.com/afrooz1" target="_blank" class="contact-link">&#128279; GitHub</a>
     </div>
-    <p class="footer-note">afrooz1 · Lahore, Pakistan · BSCS 2026</p>
+    <p class="footer-note">Afrooz Habib &nbsp;&middot;&nbsp; Lahore, Pakistan &nbsp;&middot;&nbsp; BSCS 2026</p>
   </div>
 </div>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
