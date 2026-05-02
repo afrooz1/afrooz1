@@ -57,5 +57,3 @@ React.js · Component architecture · Responsive UI · Real-world delivery
 
 ---
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=afrooz1&show_icons=true&hide_border=true&theme=default)
-
