@@ -1,139 +1,61 @@
-# 🧭 AfroozHabib — DevSecOps Journey
+# Hi, I'm Afrooz Habib 👋
 
-## 👋 Introduction
-
-Hi, I'm **Afrooz Habib**, a DevSecOps engineer passionate about automation, security, and cloud-native development. This portfolio represents my **self-guided internship journey**, where I built real-world DevOps projects from scratch using open-source tools and AWS and Azure infrastructure.
-
-This README documents my learning path — from the fundamentals to building a full-fledged DevSecOps project portfolio.
+**Junior Software Engineer · Full-Stack Developer · Cloud & DevSecOps Engineer**  
+📍 Lahore, Pakistan · 📧 cyberafrooz@gmail.com · 🔗 [LinkedIn](https://www.linkedin.com/in/afrooz-habib)
 
 ---
 
-## 🚀 My Journey
+## About me
 
-### **Phase 1 — Foundations**
+I build full-stack web apps with MERN and deploy them securely using Docker, GitHub Actions, and Azure/AWS. Currently completing **SmartBI** — an AI-powered Business Intelligence platform — as my Final Year Project.
 
-**Goal:** Build core understanding of DevOps concepts and cloud basics.
-
-* Learned Linux fundamentals, networking, and cloud architecture principles.
-* Practiced basic automation using Bash scripting and Git for version control.
-* Explored **AWS free tier** and **Azure for Students** accounts for hands-on labs.
-* Deployed first VMs, security groups, and networking configurations manually.
-
-### **Phase 2 — Infrastructure as Code (IaC)**
-
-**Goal:** Automate cloud provisioning and improve reproducibility.
-
-* Created **ARM Templates** for Azure networking labs (AZ-700 focused).
-* Transitioned to **Terraform** to deploy infrastructure on AWS.
-* Managed resources like EC2, VPCs, IAM, and Load Balancers.
-* Learned how to optimize deployments for **Free Tier limits**.
-
-**Key Skills:** Terraform, ARM Templates, AWS Cloud, Cost Optimization
-
-### **Phase 3 — Configuration & Automation**
-
-**Goal:** Ensure consistency and repeatability across environments.
-
-* Used **Ansible** for configuration management (e.g., setting up web servers, Docker installation).
-* Wrote YAML playbooks to automate server configuration.
-* Connected Terraform + Ansible workflows to provision and configure systems end-to-end.
-
-**Key Skills:** Ansible, YAML, Infrastructure Automation, IaC Pipelines
-
-### **Phase 4 — Continuous Integration / Continuous Deployment (CI/CD)**
-
-**Goal:** Automate build, test, and deployment pipelines.
-
-* Set up **Jenkins** on EC2 to run pipelines.
-* Built a full **CI/CD pipeline** that:
-
-  * Pulls code from GitHub.
-  * Builds Docker images.
-  * Pushes to Docker Hub.
-  * Deploys to Kubernetes.
-* Explored **GitHub Actions** for lightweight CI workflows.
-
-**Key Skills:** Jenkins, GitHub Actions, Docker, CI/CD, Webhooks
-
-### **Phase 5 — Containerization & Orchestration**
-
-**Goal:** Deploy scalable and maintainable applications.
-
-* Containerized applications using **Docker**.
-* Created Dockerfiles and docker-compose configurations.
-* Deployed apps on **Kubernetes clusters** with **Helm charts**.
-* Learned how to manage pods, services, and deployments.
-
-**Key Skills:** Docker, Kubernetes, Helm, Container Orchestration
-
-### **Phase 6 — Monitoring, Logging & Security**
-
-**Goal:** Integrate observability and security practices.
-
-* Implemented **Prometheus + Grafana** for performance monitoring.
-* Configured custom dashboards and alerting rules.
-* Explored **DevSecOps** principles:
-
-  * Static code analysis.
-  * Container image scanning.
-  * Least privilege IAM policies.
-
-**Key Skills:** Prometheus, Grafana, DevSecOps, Security Hardening
-
-### **Phase 7 — Portfolio Development**
-
-**Goal:** Present my work professionally.
-
-* Built this **portfolio website** using:
-
-  * React, Tailwind CSS, Node.js, MongoDB Atlas.
-* Deployed a static HTML version to host easily.
-* Documented all projects, pipelines, and architecture diagrams.
-
-**Key Skills:** Frontend Development, TailwindCSS, Documentation, Presentation
+I have hands-on internship experience in both web development (Rhombix Technologies) and DevSecOps (Microtechx), and hold Microsoft and AWS cloud certifications.
 
 ---
 
-## 🧰 Tech Stack Summary
+## 🛠 Tech Stack
 
-| Category               | Tools & Technologies                  |
-| ---------------------- | ------------------------------------- |
-| **Cloud**              | AWS, Azure                            |
-| **IaC**                | Terraform, ARM Templates              |
-| **Automation**         | Ansible, Bash, PowerShell             |
-| **CI/CD**              | Jenkins, GitHub Actions               |
-| **Containers**         | Docker, Kubernetes, Helm              |
-| **Monitoring**         | Prometheus, Grafana                   |
-| **Security**           | IAM, DevSecOps Practices              |
-| **Frontend / Backend** | React, Node.js, Tailwind CSS, MongoDB |
+**Frontend:** React.js · Vite · Tailwind CSS · JavaScript · HTML5/CSS3  
+**Backend:** Node.js · Express.js · Python · Django · REST APIs  
+**Databases:** MongoDB · SQL  
+**Cloud & DevOps:** Azure · AWS · Docker · GitHub Actions · Terraform · CI/CD  
+**Security:** DevSecOps · Azure IAM · Entra ID · Conditional Access  
+**Data & AI:** Pandas · NumPy · Matplotlib · AI integration  
+**Tools:** Git · Linux 
 
 ---
 
-## 💼 Featured Projects
+## 🚀 Featured Projects
 
-1. **CI/CD Pipeline for a Web App** — Automated build and deployment using Jenkins and Kubernetes.
-2. **Terraform Infrastructure Setup** — AWS environment fully deployed via IaC.
-3. **Monitoring Stack (Prometheus + Grafana)** — Metrics, dashboards, and alerts for containerized workloads.
-4. **Portfolio Website** — This site showcasing my work and DevSecOps journey.
-
----
-
-## 🎯 What’s Next
-
-* Expand portfolio with **multi-cloud deployments**.
-* Contribute to open-source DevOps projects.
+| Project | Description | Stack |
+|---|---|---|
+| [voting-app-devops](https://github.com/afrooz1/voting-app-devops) | Voting app with full DevOps pipeline | Docker · GitHub Actions · CI/CD |
+| [secure-webapp-devsecops](https://github.com/afrooz1/secure-webapp-devsecops) | Webapp with integrated security pipeline | DevSecOps · Azure |
+| [docker-github-actions-demo](https://github.com/afrooz1/docker-github-actions-demo) | Docker + GHA automated build & deploy | Docker · CI/CD |
+| [aws-static-website-s3](https://github.com/afrooz1/aws-static-website-s3) | Static site deployed on AWS S3 via CI/CD | AWS · GitHub Actions |
+| [Mern-Estate](https://github.com/afrooz1/Mern-Estate) | Real estate listing app with auth | MERN Stack |
 
 ---
 
-## 📫 Contact
+## 🏅 Certifications
 
-* **GitHub:** [github.com/afrooz1](https://github.com/afrooz1)
-* **LinkedIn:** Coming soon
+- **SC-300** Microsoft Identity & Access Administrator — Microtechx
+- **AZ-204** Developing Solutions for Microsoft Azure — Microtechx  
+- **AZ-700** Azure Network Engineer — Microtechx
+- **AWS Cloud Practitioner Essentials** — AWS Training & Certification
+- **Full Stack Web Development** — NEXSKILL
 
 ---
 
-### 🏁 Final Note
+## 💼 Experience
 
-This journey represents not just a technical learning path but also a **personal growth story** — from exploring basic cloud labs to building real-world DevSecOps pipelines and a professional portfolio.
+**DevSecOps Intern** @ Microtechx *(Jun – Sep 2024)*  
+Azure IAM · Entra ID · Conditional Access · DevSecOps workflows · SC-300 · AZ-204 · AZ-700
 
-Each step was documented, automated, and designed to reflect industry practices — preparing me for real-world DevOps roles.
+**Web Development Intern** @ Rhombix Technologies *(Oct – Dec 2024)*  
+React.js · Component architecture · Responsive UI · Real-world delivery
+
+---
+
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=afrooz1&show_icons=true&hide_border=true&theme=default)
+
