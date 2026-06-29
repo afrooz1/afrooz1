@@ -1,6 +1,6 @@
 # Hi, I'm Afrooz Habib 👋
 
-**Full-Stack MERN Developer · DevSecOps Engineer · Cloud Enthusiast**
+**Full-Stack MERN Developer · DevSecOps . Cloud Enthusiast**
 
 📍 Lahore, Pakistan · 📧 afroozhabib2@gmail.com · [LinkedIn](https://linkedin.com/in/afrooz-habib)
 
