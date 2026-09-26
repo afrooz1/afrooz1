@@ -1,68 +1,45 @@
-# Hi, I'm Afrooz Habib 👋
+Hi, I'm Afrooz Habib 👋
+DevOps Engineer · Docker · CI/CD · Linux · AWS & Azure · MERN Developer
 
-**Full-Stack MERN Developer · DevSecOps . Cloud Enthusiast**
-
-📍 Lahore, Pakistan · 📧 afroozhabib2@gmail.com · [LinkedIn](https://linkedin.com/in/afrooz-habib)
-
----
+📍 Lahore, Pakistan · 📧 afroozhabib2@gmail.com · [LinkedIn](https://www.linkedin.com/in/afrooz-habib/)
 
 ## About me
+I'm a DevOps Engineer with hands-on experience in Linux administration, Docker containerization, CI/CD pipelines, and cloud identity & access management across AWS and Azure currently interning as a DevOps Engineer at Khired Networks.
 
-I build and deploy full-stack web applications using the MERN stack, and secure them with DevSecOps practices on Azure and AWS. My flagship project **SmartBI**  is an AI-powered Business Intelligence platform for SMEs, built with MERN, Python FastAPI, Docker, and GitHub Actions CI/CD.
-
-I have hands-on internship experience in both web development (Rhombix Technologies) and DevSecOps (Microtechx), along with Microsoft and AWS cloud certifications.
-
----
+Before DevOps, I worked as a MERN Stack Developer, and I bring that background into how I containerize and deploy real applications. My flagship project, **SmartBI**, is an AI-powered Business Intelligence platform I containerized end-to-end — a Python/FastAPI service fully Dockerized and connected to a MERN backend, with GitHub Actions automating the full CI/CD pipeline.
 
 ## 🛠 Tech Stack
 
-**Frontend:** React.js · Vite · Redux Toolkit · Tailwind CSS · JavaScript (ES6+) · HTML5/CSS3
+**DevOps & Cloud:** Docker · GitHub Actions · Jenkins · CI/CD · Terraform · AWS (S3, IAM) · Azure (Entra ID, Conditional Access) · DevSecOps
 
-**Backend:** Node.js · Express.js · Python · FastAPI · REST APIs · JWT
+**Linux & Scripting:** Linux Administration · Bash · Cron · SSH/SCP/SFTP
 
-**Databases:** MongoDB · Mongoose · SQL
+**Databases:** MySQL · PostgreSQL · MongoDB
 
-**Cloud & DevOps:** Azure · AWS · Docker · GitHub Actions · Terraform · CI/CD
+**Full-Stack (background):** React.js · Node.js · Express.js · REST APIs · JWT
 
-**Security:** DevSecOps · Azure IAM · Microsoft Entra ID · Conditional Access
-
-**Data & AI:** Groq API · Prophet · PyOD · Pandas · NumPy
-
-**Tools:** Git · Postman · Linux
-
----
+**Data & AI:** Python · FastAPI · Prophet · PyOD · Pandas · NumPy
 
 ## 🚀 Featured Projects
 
-| Project | Description | Stack | Links |
-|---|---|---|---|
-| **SmartBI** | AI-powered BI platform for SMEs with sales forecasting, anomaly detection, and NLP chatbot | MERN · Python · FastAPI · Docker · GitHub Actions | [Live Demo](https://smartbi-one.vercel.app/) |
-| **MERN Estate** | Full-stack real estate marketplace with JWT auth, Google OAuth, Redux Toolkit, and Firebase | MERN · Redux · Firebase · Tailwind CSS | [Live Demo](https://mern-estate-dmbl.onrender.com) · [GitHub](https://github.com/afrooz1/Mern-Estate) |
-| **Task Manager** | Full-stack task management app with JWT auth, full CRUD, and optimistic UI updates | MERN · JWT · Tailwind CSS | [Live Demo](https://task-manager-app-sepia-xi.vercel.app/) · [GitHub](https://github.com/afrooz1/Task-Manager-App) |
-| **voting-app-devops** | Voting app with full Docker containerization and GitHub Actions CI/CD pipeline | Docker · GitHub Actions · CI/CD | [GitHub](https://github.com/afrooz1/voting-app-devops) |
-| **secure-webapp-devsecops** | Security-hardened web app with Terraform IaC and Azure DevSecOps pipeline | Terraform · Azure · DevSecOps | [GitHub](https://github.com/afrooz1/secure-webapp-devsecops) |
-| **aws-static-website-s3** | Static website deployed on AWS S3 with CloudFront CDN via GitHub Actions | AWS S3 · CloudFront · GitHub Actions | [GitHub](https://github.com/afrooz1/aws-static-website-s3) |
-
----
+| Project | Description | Stack |
+|---|---|---|
+| **SmartBI** | AI-powered BI platform — forecasting, anomaly detection, containerized AI service | MERN · Python · FastAPI · Docker · GitHub Actions |
+| **voting-app-devops** | Voting app with full Docker containerization and CI/CD pipeline | Docker · GitHub Actions · CI/CD |
+| **secure-webapp-devsecops** | Security-hardened web app with Terraform IaC and Azure DevSecOps pipeline | Terraform · Azure · DevSecOps |
+| **aws-static-website-s3** | Static website deployed on AWS S3 with CloudFront CDN | AWS S3 · CloudFront · GitHub Actions |
+| **Mern-Estate** | Full-stack real estate marketplace — JWT auth, Google OAuth, Redux | MERN · Redux · Firebase |
 
 ## 💼 Experience
+**DevOps Intern @ Khired Networks** *(Aug 2026 – Present)*
+Linux administration · Docker · Git/GitHub workflows · networking · MySQL/PostgreSQL
 
-**DevSecOps Intern @ Microtechx** *(Jun – Sep 2025)*
-Azure IAM · Microsoft Entra ID · Conditional Access · DevSecOps workflows · SC-300 · AZ-204 · AZ-700
+**DevSecOps Intern @ MicroTechX** *(Jun – Sep 2025)*
+Azure IAM · Microsoft Entra ID · Conditional Access · DevSecOps workflows
 
 **Web Development Intern @ Rhombix Technologies** *(Oct – Dec 2024)*
-React.js · Component architecture · Responsive UI · Agile delivery
-
----
+React.js · component architecture · Agile delivery
 
 ## 🏅 Certifications
-
-- SC-300 Microsoft Identity & Access Administrator — Microtechx
-- AZ-204 Developing Solutions for Microsoft Azure — Microtechx
-- AZ-700 Azure Network Engineer — Microtechx
 - AWS Cloud Practitioner Essentials — AWS Training & Certification
 - Full Stack Web Development — NEXSKILL
-
----
-
-
